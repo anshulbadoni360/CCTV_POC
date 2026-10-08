@@ -1,0 +1,3 @@
+tracklet_id,source_tracker_id,visitor_id,start_seconds,end_seconds,duration_seconds,observations,mean_detection_confidence,track_status
+T0001,1,S-V001,0.0,20.22,20.22,102,0.8907,part_of_camera_local_identity
+T0002,2,S-V002,0.0,21.021,21.021,106,0.7881,part_of_camera_local_identity

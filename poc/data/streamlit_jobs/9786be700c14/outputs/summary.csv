@@ -1,0 +1,2 @@
+camera_role,camera_local_visitors_estimated,tracklets,distinct_group_memberships,group_intervals,peak_occupancy,entry_events,exit_events,checkout_presence_events,payments_verified
+checkout,6,9,1,1,5,0,0,6,0

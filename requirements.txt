@@ -1,0 +1,19 @@
+ultralytics
+opencv-python
+numpy
+pandas
+lap>=0.5.12
+fastapi
+uvicorn
+scikit-learn
+pandas
+numpy
+pydantic
+torch
+torchvision
+scipy
+torchreid
+deep-sort-realtime
+
+//python -m pip install gdown
+//python -m pip install tensorboard

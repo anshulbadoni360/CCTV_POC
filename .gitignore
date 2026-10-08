@@ -1,0 +1,6 @@
+*.mp4
+*.pt
+.cache
+.venv
+.__pycache__
+.streamlit

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f5ef">
+  <title>Retail Flow — Video Analytics</title>
+  <style>
+    :root{--bg:#f4f5ef;--paper:#fffefa;--ink:#172722;--muted:#6e7c73;--line:#dde4d9;--green:#146d50;--green2:#1c8b64;--mint:#dff0e6;--lime:#cfef8b;--gold:#d39f46;--navy:#193a32;--red:#b44e3d;--shadow:0 18px 55px rgba(19,47,37,.08);--radius:20px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit} .shell{max-width:1360px;margin:0 auto;padding:0 34px}
+    .topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(23,39,34,.1)}.brand{display:flex;gap:11px;align-items:center;text-decoration:none}.brand-mark{width:35px;height:35px;display:grid;place-items:center;border-radius:11px;background:var(--navy);color:var(--lime);font-weight:900;font-size:17px;letter-spacing:-1px}.brand-name{font-size:14px;font-weight:800;letter-spacing:.04em}.brand-sub{font-size:10px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin-top:1px}.top-right{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:12px}.privacy-dot{width:7px;height:7px;border-radius:100%;background:#44a873;box-shadow:0 0 0 4px #dff0e6}.tiny-pill{padding:7px 11px;border:1px solid var(--line);border-radius:20px;background:#fffefa;color:#55665c}
+    .hero{padding:44px 0 32px;display:grid;grid-template-columns:1.4fr .6fr;gap:35px;align-items:end}.eyebrow{font-size:10px;color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.18em;display:flex;align-items:center;gap:9px}.eyebrow:before{content:"";width:21px;height:1px;background:var(--green)}h1{font-size:clamp(38px,5.4vw,66px);line-height:.99;letter-spacing:-.064em;margin:14px 0 17px;font-weight:740;max-width:790px}.hero p{font-size:15px;color:#627067;max-width:630px;margin:0;line-height:1.7}.hero-note{border-left:2px solid var(--lime);padding:8px 0 8px 17px;color:#5c6b62;font-size:12px;max-width:310px;justify-self:end}.hero-note strong{display:block;color:var(--ink);font-size:13px;margin-bottom:4px}
+    .steps{display:flex;align-items:center;gap:10px;margin:7px 0 17px;color:#839087;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.step{display:flex;align-items:center;gap:8px}.step-num{width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:#e4e9e0;color:#829086;font-size:10px}.step.active{color:var(--green)}.step.active .step-num{background:var(--green);color:white}.step-line{width:45px;height:1px;background:#dce2d7}
+    .section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin:22px 0 14px}.section-heading h2{margin:0;font-size:19px;letter-spacing:-.03em}.section-heading p{margin:4px 0 0;color:var(--muted);font-size:12px}.optional-tag{padding:5px 9px;border:1px solid #dce5d8;border-radius:30px;font-size:10px;color:#6b796f;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+    .upload-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.upload-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 4px 16px rgba(23,39,34,.025);transition:border .18s,transform .18s}.upload-card:hover{border-color:#b9cbb9;transform:translateY(-2px)}.upload-card.has-file{border-color:#85b69a;background:linear-gradient(145deg,#fffefa,#f5fbf5)}.upload-card.has-file .dropzone input{pointer-events:none}.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.role-icon{width:38px;height:38px;background:#edf4ed;border-radius:12px;display:grid;place-items:center;color:var(--green)}.role-icon svg{width:20px;height:20px}.role-step{color:#97a198;font-size:10px;letter-spacing:.1em;font-weight:800}.upload-card h3{margin:13px 0 4px;font-size:16px;letter-spacing:-.025em}.upload-card .desc{margin:0 0 15px;min-height:36px;color:var(--muted);font-size:11px;line-height:1.55}.dropzone{position:relative;min-height:89px;border:1px dashed #cbd7cb;border-radius:14px;background:#fafbf7;display:flex;align-items:center;justify-content:center;text-align:center;padding:13px;transition:.2s}.dropzone.drag{border-color:var(--green);background:#eff8ef}.dropzone input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}.drop-content svg{width:18px;height:18px;color:#728478;margin-bottom:3px}.drop-content strong{display:block;font-size:11px;color:#35483e}.drop-content span{font-size:10px;color:#8a958c}.file-meta{display:none;text-align:left;align-items:center;gap:10px;width:100%}.file-meta.show{display:flex}.file-play{width:29px;height:29px;border-radius:9px;background:#dff0e6;color:#146d50;display:grid;place-items:center;flex:none}.file-play svg{width:13px}.file-details{min-width:0;flex:1}.file-name{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.file-extra{font-size:10px;color:var(--muted)}.remove-file{border:0;background:transparent;color:#839087;padding:5px}.remove-file:hover{color:var(--red)}.offset-row{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;color:#78867d;font-size:10px}.offset-input{width:104px;height:29px;border:1px solid var(--line);border-radius:8px;background:#fffefa;padding:0 8px;color:var(--ink);font-size:11px;outline:none}.offset-input:focus{border-color:var(--green)}
+    .sync-callout{margin:12px 0 0;padding:11px 13px;background:#ecf3ec;border-radius:11px;color:#607268;font-size:10px;display:flex;gap:9px;align-items:flex-start}.sync-callout svg{width:15px;height:15px;flex:none;color:#3c8060;margin-top:1px}
+    .settings{margin-top:17px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.settings summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:17px 20px;font-weight:700;font-size:13px}.settings summary::-webkit-details-marker{display:none}.settings-title{display:flex;align-items:center;gap:11px}.settings-icon{width:30px;height:30px;border-radius:10px;background:#f0f4ec;display:grid;place-items:center;color:var(--green)}.settings-icon svg{width:15px}.settings-arrow{color:#829087;transition:transform .2s}.settings[open] .settings-arrow{transform:rotate(180deg)}.settings-body{border-top:1px solid #e8ece5;padding:18px 20px 21px;display:grid;grid-template-columns:repeat(4,1fr);gap:19px 18px}.field label{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:7px;font-size:11px;font-weight:700;color:#34463d}.field small{color:#8a958c;font-size:9px;font-weight:500}.field select,.field input[type=number]{width:100%;height:37px;border:1px solid var(--line);border-radius:10px;background:#fffefa;padding:0 10px;font-size:11px;color:var(--ink);outline:none}.field input[type=range]{width:100%;accent-color:var(--green);margin:7px 0}.range-value{color:var(--green);font-variant-numeric:tabular-nums}.field-note{font-size:9px;color:#8a958c;line-height:1.4;margin-top:2px}.form-actions{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:15px}.required-note{color:#7b887e;font-size:11px}.primary-btn{border:0;background:var(--green);color:white;border-radius:11px;min-height:46px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:750;font-size:12px;box-shadow:0 7px 16px rgba(20,109,80,.16);transition:.18s}.primary-btn:hover:not(:disabled){background:#0f5d44;transform:translateY(-1px)}.primary-btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}.primary-btn svg{width:17px;height:17px}.secondary-btn{border:1px solid var(--line);background:var(--paper);color:#46574c;border-radius:10px;padding:9px 13px;font-weight:700;font-size:11px}.secondary-btn:hover{border-color:#a8bbaa}.security-note{font-size:10px;color:#879288;margin:12px 2px 0;display:flex;align-items:center;gap:7px}.security-note svg{width:13px;height:13px;color:#6d8c78}
+    .progress-panel{display:none;margin-top:22px;background:var(--navy);border-radius:var(--radius);padding:21px 23px;color:white;box-shadow:var(--shadow)}.progress-panel.show{display:block}.progress-head{display:flex;justify-content:space-between;gap:20px;align-items:center}.progress-title{font-weight:750;font-size:14px}.progress-stage{font-size:11px;color:#b7ccbf;margin-top:3px}.progress-percent{color:var(--lime);font-weight:800;font-size:15px;font-variant-numeric:tabular-nums}.progress-track{height:6px;background:#37564b;border-radius:8px;margin-top:17px;overflow:hidden}.progress-fill{height:100%;width:0;background:var(--lime);border-radius:8px;transition:width .4s}.progress-sub{display:flex;justify-content:space-between;color:#a7bdaf;font-size:10px;margin-top:9px}
+    .error-box{display:none;margin-top:15px;background:#fff1ed;border:1px solid #f0c2b8;border-radius:13px;padding:12px 15px;color:#873d30;font-size:12px}.error-box.show{display:block}
+    .results{display:none;margin:44px 0 65px}.results.show{display:block}.results-header{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:17px}.results-header h2{margin:0;font-size:25px;letter-spacing:-.04em}.results-header p{margin:5px 0 0;color:var(--muted);font-size:12px}.result-actions{display:flex;gap:8px;flex-wrap:wrap}.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}.kpi{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;min-height:109px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;width:65px;height:65px;border-radius:50%;background:#edf4e9;right:-19px;top:-20px}.kpi-label{position:relative;z-index:1;font-size:10px;color:#758279;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.kpi-value{position:relative;z-index:1;margin-top:14px;font-size:27px;line-height:1;font-weight:750;letter-spacing:-.05em;font-variant-numeric:tabular-nums}.kpi-note{position:relative;z-index:1;margin-top:6px;font-size:9px;color:#879288}
+    .notice{margin:13px 0 19px;padding:12px 15px;border-radius:13px;background:#fff7e8;border:1px solid #f0dfbc;display:flex;gap:10px;align-items:flex-start;color:#756443;font-size:11px;line-height:1.55}.notice svg{width:16px;height:16px;flex:none;color:#bb9147;margin-top:1px}.notice strong{color:#55452b}.role-results{display:grid;gap:14px}.role-result{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.role-result-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px 19px;border-bottom:1px solid #e9eee6}.role-result-title{display:flex;align-items:center;gap:11px}.role-result-title h3{margin:0;font-size:14px}.role-result-title p{margin:2px 0 0;color:var(--muted);font-size:10px}.role-badge{border-radius:30px;padding:5px 9px;background:#eff5eb;color:#52745c;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.role-result-content{padding:17px;display:grid;grid-template-columns:minmax(250px,.8fr) 1.2fr;gap:18px}.video-wrap{background:#101815;border-radius:13px;overflow:hidden;aspect-ratio:16/9;display:grid;place-items:center}.video-wrap video{width:100%;height:100%;object-fit:contain}.video-empty{color:#d3ded7;font-size:11px}.role-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mini-stat{background:#f5f7f1;border-radius:10px;padding:10px}.mini-stat span{display:block;font-size:9px;color:#7d887f}.mini-stat strong{display:block;font-size:17px;margin-top:4px;letter-spacing:-.04em}.role-subtitle{margin:15px 0 7px;font-size:10px;color:#7b887e;text-transform:uppercase;letter-spacing:.1em;font-weight:800}.visitor-list{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;max-height:176px;overflow:auto}.visitor-row{padding:8px 9px;border:1px solid #e7ebe4;border-radius:9px;display:flex;justify-content:space-between;gap:8px;align-items:center}.visitor-row strong{font-size:10px}.visitor-row span{font-size:9px;color:#758279;text-align:right}.inline-links{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.file-link{border:1px solid var(--line);border-radius:9px;background:#fffefa;padding:7px 9px;text-decoration:none;font-size:10px;font-weight:700;color:#456054}.file-link:hover{border-color:#a8bbaa;color:var(--green)}.warning-list{margin-top:10px;color:#8a6733;font-size:10px;line-height:1.5}.groups-section,.candidates-section{margin-top:19px}.subsection-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.subsection-heading h3{font-size:15px;margin:0;letter-spacing:-.03em}.subsection-heading span{font-size:10px;color:var(--muted)}.group-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.group-card{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:13px}.group-head{display:flex;align-items:center;justify-content:space-between}.group-head strong{font-size:11px}.group-kind{padding:4px 7px;background:#ecf5e4;color:#567347;border-radius:20px;font-size:8px;text-transform:uppercase;font-weight:800;letter-spacing:.06em}.group-members{margin-top:9px;color:#44554b;font-size:10px}.group-meta{margin-top:5px;color:#839087;font-size:9px}.candidate-table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:10px}.candidate-table th,.candidate-table td{text-align:left;padding:10px;border-bottom:1px solid #edf0ea}.candidate-table th{color:#7b887e;font-size:9px;text-transform:uppercase;letter-spacing:.08em;background:#f8f9f5}.candidate-table tr:last-child td{border-bottom:0}.empty-state{background:#fffefa;border:1px dashed #d9e1d7;border-radius:14px;padding:17px;color:#7b887e;font-size:11px;text-align:center}
+    footer{border-top:1px solid rgba(23,39,34,.09);padding:19px 0 27px;color:#8b958d;font-size:10px;display:flex;justify-content:space-between;gap:14px}.footer-brand{color:#506257;font-weight:800}
+    @media(max-width:950px){.shell{padding:0 22px}.hero{grid-template-columns:1fr;gap:20px;padding-top:34px}.hero-note{justify-self:start;max-width:600px}.settings-body{grid-template-columns:repeat(2,1fr)}.kpi-grid{grid-template-columns:repeat(3,1fr)}.role-result-content{grid-template-columns:1fr}.group-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.shell{padding:0 15px}.topbar{height:64px}.top-right .tiny-pill{display:none}.hero{padding:33px 0 22px}h1{font-size:43px}.upload-grid{grid-template-columns:1fr}.upload-card .desc{min-height:0}.dropzone{min-height:74px}.section-heading{align-items:flex-start}.settings-body{grid-template-columns:1fr 1fr;gap:16px 12px}.form-actions{align-items:stretch;flex-direction:column}.primary-btn{width:100%}.required-note{text-align:center}.kpi-grid{grid-template-columns:repeat(2,1fr)}.results-header{align-items:flex-start;flex-direction:column}.role-stats{grid-template-columns:repeat(2,1fr)}.visitor-list{grid-template-columns:1fr}.group-grid{grid-template-columns:1fr}footer{flex-direction:column}.steps{gap:6px;font-size:9px}.step-line{width:20px}.step{gap:5px}.step-num{width:20px;height:20px}}
+    @media(max-width:390px){.settings-body{grid-template-columns:1fr}.kpi{padding:13px}.kpi-value{font-size:24px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Retail Flow home">
+        <div class="brand-mark">rf</div><div><div class="brand-name">RETAIL FLOW</div><div class="brand-sub">Video analytics studio</div></div>
+      </a>
+      <div class="top-right"><span class="privacy-dot"></span><span>Anonymous by design</span><span class="tiny-pill">Recorded video · local analysis</span></div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Store intelligence, made practical</div>
+          <h1>See the flow.<br>Not just the footfall.</h1>
+          <p>Upload one camera or a full set. Track anonymous people, estimate temporary groups, map movement and dwell, and review entrance or checkout activity in an annotated video.</p>
+        </div>
+        <div class="hero-note"><strong>Start with any camera.</strong>Entrance, store-floor and checkout videos are all optional. Each uploaded clip is analyzed on its own; you do not need to provide all three.</div>
+      </section>
+
+      <div class="steps" aria-label="Workflow"><div class="step active" id="stepUpload"><span class="step-num">1</span><span>Add video</span></div><span class="step-line"></span><div class="step" id="stepAnalyze"><span class="step-num">2</span><span>Analyze</span></div><span class="step-line"></span><div class="step" id="stepReview"><span class="step-num">3</span><span>Review</span></div></div>
+
+      <section aria-labelledby="uploadHeading">
+        <div class="section-heading"><div><h2 id="uploadHeading">Add your recorded clips</h2><p>Assign each upload to the camera view it came from. One is enough to run the pipeline.</p></div><span class="optional-tag">All camera slots optional</span></div>
+        <div class="upload-grid">
+          <article class="upload-card" data-role="entrance">
+            <div class="card-top"><div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5V20M2 20h20M8 20v-4h8v4M12 7v7m-3-3 3 3 3-3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="role-step">CAMERA 01</span></div>
+            <h3>Entrance</h3><p class="desc">Line-crossing entry and exit events, with pre-existing occupants called out separately.</p>
+            <div class="dropzone" tabindex="0"><input type="file" accept="video/*,.mkv,.avi,.m4v" aria-label="Upload entrance video"><div class="drop-content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 15v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Drop entrance video here</strong><span>or browse · MP4, MOV, AVI, MKV</span></div><div class="file-meta"><div class="file-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10-6.5z"/></svg></div><div class="file-details"><div class="file-name"></div><div class="file-extra"></div></div><button class="remove-file" type="button" aria-label="Remove video">✕</button></div></div>
+            <div class="offset-row"><label for="offset-entrance">Clip start offset <span title="Seconds from a shared, synchronized session start">ⓘ</span></label><input class="offset-input" id="offset-entrance" type="number" min="0" step="0.1" placeholder="Not synced"></div>
+          </article>
+          <article class="upload-card" data-role="store">
+            <div class="card-top"><div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 10h17M5 10v10h14V10M4 10l1.5-6h13L20 10M9 14h6m-6 3h6" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 4v6m8-6v6" stroke-linecap="round"/></svg></div><span class="role-step">CAMERA 02</span></div>
+            <h3>Store floor</h3><p class="desc">Anonymous tracks, temporary group intervals, movement paths, zone dwell and low-movement periods.</p>
+            <div class="dropzone" tabindex="0"><input type="file" accept="video/*,.mkv,.avi,.m4v" aria-label="Upload store video"><div class="drop-content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 15v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Drop store-floor video here</strong><span>or browse · MP4, MOV, AVI, MKV</span></div><div class="file-meta"><div class="file-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10-6.5z"/></svg></div><div class="file-details"><div class="file-name"></div><div class="file-extra"></div></div><button class="remove-file" type="button" aria-label="Remove video">✕</button></div></div>
+            <div class="offset-row"><label for="offset-store">Clip start offset <span title="Seconds from a shared, synchronized session start">ⓘ</span></label><input class="offset-input" id="offset-store" type="number" min="0" step="0.1" placeholder="Not synced"></div>
+          </article>
+          <article class="upload-card" data-role="checkout">
+            <div class="card-top"><div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7.5h18v12H3zM7 7.5V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2.5M7 12h3m4 0h3m-10 4h3m4 0h3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="role-step">CAMERA 03</span></div>
+            <h3>Checkout / purchase</h3><p class="desc">Track visitors visible at checkout and estimate presence windows. Video alone cannot verify payment.</p>
+            <div class="dropzone" tabindex="0"><input type="file" accept="video/*,.mkv,.avi,.m4v" aria-label="Upload checkout video"><div class="drop-content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 15v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Drop checkout video here</strong><span>or browse · MP4, MOV, AVI, MKV</span></div><div class="file-meta"><div class="file-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10-6.5z"/></svg></div><div class="file-details"><div class="file-name"></div><div class="file-extra"></div></div><button class="remove-file" type="button" aria-label="Remove video">✕</button></div></div>
+            <div class="offset-row"><label for="offset-checkout">Clip start offset <span title="Seconds from a shared, synchronized session start">ⓘ</span></label><input class="offset-input" id="offset-checkout" type="number" min="0" step="0.1" placeholder="Not synced"></div>
+          </article>
+        </div>
+        <div class="sync-callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg><span><strong>Optional cross-camera review:</strong> enter a clip start offset only when videos share a known timeline. The system may surface candidate links, but it will not merge camera IDs automatically.</span></div>
+
+        <details class="settings" open>
+          <summary><span class="settings-title"><span class="settings-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h9m4 0h3M4 17h3m4 0h9M13 4v6M7 14v6" stroke-linecap="round"/><circle cx="15" cy="7" r="2" fill="#fffefa"/><circle cx="9" cy="17" r="2" fill="#fffefa"/></svg></span><span>Analysis settings</span></span><span class="settings-arrow">⌄</span></summary>
+          <div class="settings-body">
+            <div class="field"><label for="detector">Person detector <small>Auto recommended</small></label><select id="detector"><option value="auto">Auto · YOLO if installed, HOG fallback</option><option value="yolo">YOLO · use optional model</option><option value="hog">OpenCV HOG · no model download</option></select><div class="field-note">HOG is a basic fallback and may miss small or overhead people.</div></div>
+            <div class="field"><label for="analysisFps">Analysis sampling <span class="range-value" id="analysisFpsVal">6 fps</span></label><input id="analysisFps" type="range" min="2" max="12" step="1" value="6"><div class="field-note">Higher sampling can improve tracking but takes longer.</div></div>
+            <div class="field"><label for="groupSeconds">Minimum group time <span class="range-value" id="groupSecondsVal">3 sec</span></label><input id="groupSeconds" type="range" min="1" max="12" step="1" value="3"><div class="field-note">Groups are temporary proximity/co-movement intervals.</div></div>
+            <div class="field"><label for="groupDistance">Proximity threshold <span class="range-value" id="groupDistanceVal">1.25× height</span></label><input id="groupDistance" type="range" min="0.7" max="2.5" step="0.05" value="1.25"><div class="field-note">Normalized by observed person-box height, not metres.</div></div>
+            <div class="field"><label for="entranceLine">Entrance line <span class="range-value" id="entranceLineVal">52%</span></label><input id="entranceLine" type="range" min="15" max="85" step="1" value="52"><div class="field-note">A horizontal line in the entrance-camera image.</div></div>
+            <div class="field"><label for="entryDirection">Entry direction</label><select id="entryDirection"><option value="down">Top → bottom is entry</option><option value="up">Bottom → top is entry</option></select><div class="field-note">Configure this for the camera's view of the doorway.</div></div>
+            <div class="field"><label for="zoneLayout">Store-floor zones</label><select id="zoneLayout"><option value="columns">3 vertical regions</option><option value="quadrants">4 image quadrants</option><option value="off">Off</option></select><div class="field-note">Image-space areas only; not calibrated physical distances.</div></div>
+            <div class="field"><label for="confidence">Detection confidence <span class="range-value" id="confidenceVal">0.30</span></label><input id="confidence" type="range" min="0.1" max="0.75" step="0.05" value="0.30"><div class="field-note">Higher values suppress weak detections.</div></div>
+          </div>
+        </details>
+        <div class="form-actions"><div class="required-note" id="selectionCount">Choose at least one video to begin.</div><button id="analyzeBtn" class="primary-btn" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h13m-5-5 5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Analyze selected videos</span></button></div>
+        <div class="security-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 5 6v5c0 4.7 2.9 8.1 7 10 4.1-1.9 7-5.3 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>Files stay in this workspace's job folder. This prototype has no user login; don't upload sensitive footage to an untrusted deployment.</div>
+      </section>
+
+      <section class="progress-panel" id="progressPanel" aria-live="polite"><div class="progress-head"><div><div class="progress-title" id="progressTitle">Preparing your analysis</div><div class="progress-stage" id="progressStage">Uploading selected clips</div></div><div class="progress-percent" id="progressPercent">0%</div></div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><div class="progress-sub"><span id="progressLeft">This can take a few minutes for longer video.</span><span id="progressRight">Recorded video pipeline</span></div></section>
+      <div class="error-box" id="errorBox"></div>
+
+      <section class="results" id="results">
+        <div class="results-header"><div><div class="eyebrow">Analysis complete</div><h2>Store flow, at a glance.</h2><p id="resultMeta">Results are estimates for the uploaded camera clips.</p></div><div class="result-actions"><button class="secondary-btn" id="newAnalysis">＋ New analysis</button><a class="secondary-btn" id="jsonDownload" href="#" download>Download report</a></div></div>
+        <div class="kpi-grid" id="kpiGrid"></div>
+        <div class="notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 9v4m0 4h.01M10.3 4.6 2.8 18a1.5 1.5 0 0 0 1.3 2.2h15.8a1.5 1.5 0 0 0 1.3-2.2l-7.5-13.4a1.5 1.5 0 0 0-2.6 0Z" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Read these as operational estimates, not ground truth.</strong> Visitor IDs are camera-local and not deduplicated across views. Groups mean temporary closeness, not family. Checkout presence is not proof of a purchase.</div></div>
+        <div class="role-results" id="roleResults"></div>
+        <div class="groups-section"><div class="subsection-heading"><h3>Observed group intervals</h3><span>Proximity and co-movement only</span></div><div class="group-grid" id="groupGrid"></div></div>
+        <div class="candidates-section" id="candidatesSection"><div class="subsection-heading"><h3>Cross-camera review candidates</h3><span>Only shown when synchronized offsets were provided</span></div><div id="candidateList"></div></div>
+      </section>
+    </main>
+    <footer><div><span class="footer-brand">RETAIL FLOW</span> · recorded-video analytics prototype</div><div>Anonymous estimates · no face recognition · no intent or relationship inference</div></footer>
+  </div>
+
+  <script>
+    const roleLabels = {entrance:"Entrance",store:"Store floor",checkout:"Checkout / purchase"};
+    const selected = {entrance:null,store:null,checkout:null};
+    let currentJob = null;
+    const $ = (id) => document.getElementById(id);
+    const cards = [...document.querySelectorAll('.upload-card')];
+    const fmtBytes = n => n < 1048576 ? `${Math.max(1,Math.round(n/1024))} KB` : `${(n/1048576).toFixed(1)} MB`;
+    const fmtTime = n => { if(!Number.isFinite(Number(n))) return '—'; const s=Math.max(0,Math.round(Number(n))); return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`; };
+    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function refreshSelection(){
+      const count = Object.values(selected).filter(Boolean).length;
+      $('analyzeBtn').disabled = count === 0;
+      $('selectionCount').textContent = count ? `${count} camera ${count===1?'video':'videos'} selected · any single role can be analyzed independently.` : 'Choose at least one video to begin.';
+    }
+    function attachFile(card,file){
+      if(!file)return;
+      const role=card.dataset.role;
+      const ext=(file.name.split('.').pop()||'').toLowerCase();
+      if(!['mp4','mov','avi','mkv','webm','m4v'].includes(ext)){showError('Unsupported video type. Choose MP4, MOV, AVI, MKV, WEBM or M4V.');return;}
+      const maxBytes=1024*1024*1024;
+      if(file.size>maxBytes){showError('This prototype accepts videos up to 1 GB per clip.');return;}
+      selected[role]=file;
+      card.classList.add('has-file');
+      card.querySelector('.drop-content').style.display='none';
+      const meta=card.querySelector('.file-meta'); meta.classList.add('show');
+      meta.querySelector('.file-name').textContent=file.name;
+      meta.querySelector('.file-extra').textContent=`${fmtBytes(file.size)} · video selected`;
+      clearError(); refreshSelection();
+    }
+    cards.forEach(card=>{
+      const input=card.querySelector('input[type=file]');
+      const zone=card.querySelector('.dropzone');
+      input.addEventListener('change',()=>attachFile(card,input.files[0]));
+      zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('drag')});
+      zone.addEventListener('dragleave',()=>zone.classList.remove('drag'));
+      zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('drag');attachFile(card,e.dataTransfer.files[0])});
+      zone.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target===zone){e.preventDefault();input.click()}});
+      card.querySelector('.remove-file').addEventListener('click',e=>{e.preventDefault();e.stopPropagation();selected[card.dataset.role]=null;input.value='';card.classList.remove('has-file');card.querySelector('.drop-content').style.display='';card.querySelector('.file-meta').classList.remove('show');refreshSelection()});
+    });
+    [['analysisFps','analysisFpsVal',v=>`${v} fps`],['groupSeconds','groupSecondsVal',v=>`${v} sec`],['groupDistance','groupDistanceVal',v=>`${Number(v).toFixed(2)}× height`],['entranceLine','entranceLineVal',v=>`${v}%`],['confidence','confidenceVal',v=>Number(v).toFixed(2)]].forEach(([input,label,format])=>$(input).addEventListener('input',e=>$(label).textContent=format(e.target.value)));
+
+    function showError(message){const box=$('errorBox');box.textContent=message;box.classList.add('show');box.scrollIntoView({behavior:'smooth',block:'center'})}
+    function clearError(){const box=$('errorBox');box.textContent='';box.classList.remove('show')}
+    function setProgress(percent,title,stage,detail=''){const p=Math.max(0,Math.min(100,Number(percent)||0));$('progressPanel').classList.add('show');$('progressFill').style.width=`${p}%`;$('progressPercent').textContent=`${Math.round(p)}%`;$('progressTitle').textContent=title;$('progressStage').textContent=stage;$('progressLeft').textContent=detail||'Longer clips and higher sampling settings take more time.'}
+    function setStep(which){['stepUpload','stepAnalyze','stepReview'].forEach((id,i)=>$(id).classList.toggle('active',i<=which))}
+    function requestUpload(jobId,role,file,onProgress){return new Promise((resolve,reject)=>{const xhr=new XMLHttpRequest();xhr.open('PUT',`/api/jobs/${jobId}/videos/${role}?filename=${encodeURIComponent(file.name)}`);xhr.setRequestHeader('Content-Type',file.type||'application/octet-stream');xhr.upload.onprogress=e=>{if(e.lengthComputable)onProgress(e.loaded/e.total)};xhr.onload=()=>{let body={};try{body=JSON.parse(xhr.responseText)}catch{};if(xhr.status>=200&&xhr.status<300)resolve(body);else reject(new Error(body.error||`Upload failed (${xhr.status})`))};xhr.onerror=()=>reject(new Error('Upload connection failed.'));xhr.send(file)})}
+    async function postJson(url,data){const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const body=await response.json().catch(()=>({}));if(!response.ok)throw new Error(body.error||`Request failed (${response.status})`);return body}
+    function buildConfig(){
+      const offsets={};
+      for(const role of Object.keys(selected)){const value=$(`offset-${role}`).value.trim();offsets[role]=value===''?null:Number(value)}
+      return {detector:$('detector').value,detector_model:'yolo11n.pt',confidence:Number($('confidence').value),analysis_fps:Number($('analysisFps').value),group_min_together_sec:Number($('groupSeconds').value),group_proximity_heights:Number($('groupDistance').value),entrance_line_y:Number($('entranceLine').value)/100,entry_direction:$('entryDirection').value,zone_layout:$('zoneLayout').value,clip_start_offsets:offsets};
+    }
+    $('analyzeBtn').addEventListener('click',async()=>{
+      clearError();$('results').classList.remove('show');$('analyzeBtn').disabled=true;setStep(1);setProgress(0,'Creating analysis','Preparing video slots');
+      try{
+        const job=await postJson('/api/jobs',{config:buildConfig()});currentJob=job.id;
+        const roles=Object.keys(selected).filter(role=>selected[role]);
+        for(let i=0;i<roles.length;i++){
+          const role=roles[i],file=selected[role];
+          setProgress(100*(i/roles.length),'Uploading videos',`Uploading ${roleLabels[role]} · ${file.name}`,`Video ${i+1} of ${roles.length} · ${fmtBytes(file.size)}`);
+          await requestUpload(currentJob,role,file,f=>setProgress(100*(i+f)/roles.length,'Uploading videos',`Uploading ${roleLabels[role]} · ${file.name}`,`${Math.round(f*100)}% · ${fmtBytes(file.size)}`));
+        }
+        setStep(2);setProgress(2,'Analyzing recorded video','Starting detector and tracker');
+        await postJson(`/api/jobs/${currentJob}/analyze`,{});
+        await pollJob(currentJob);
+      }catch(err){showError(err.message||String(err));$('analyzeBtn').disabled=Object.values(selected).filter(Boolean).length===0;setStep(0)}
+    });
+    async function pollJob(id){
+      for(;;){
+        const response=await fetch(`/api/jobs/${id}`,{cache:'no-store'});const job=await response.json();
+        setProgress(job.progress||0,job.status==='complete'?'Analysis complete':'Analyzing recorded clips',job.stage||'Processing',job.video_results?`${Object.keys(job.video_results).length} of ${Object.keys(job.videos||{}).length} clips completed`:'Tracks, group intervals and behavior summaries are computed offline.');
+        if(job.status==='complete'){
+          const reportResponse=await fetch(`/api/jobs/${id}/report`);const report=await reportResponse.json();renderResults(job,report);setStep(2);$('progressPanel').classList.remove('show');$('results').scrollIntoView({behavior:'smooth',block:'start'});$('analyzeBtn').disabled=false;return;
+        }
+        if(job.status==='failed')throw new Error(job.error||'Analysis failed.');
+        await new Promise(resolve=>setTimeout(resolve,1300));
+      }
+    }
+    const kpi=(label,value,note)=>`<div class="kpi"><div class="kpi-label">${escapeHtml(label)}</div><div class="kpi-value">${escapeHtml(value)}</div><div class="kpi-note">${escapeHtml(note)}</div></div>`;
+    function renderResults(job,report){
+      const summary=report.summary||{};const roles=report.camera_reports||{};const roleOrder=['entrance','store','checkout'].filter(r=>roles[r]);
+      $('results').classList.add('show');$('resultMeta').textContent=`${roleOrder.length} camera ${roleOrder.length===1?'clip':'clips'} · finished ${new Date(job.updated_at).toLocaleString()}`;
+      const jsonLink=job.outputs?.find(o=>o.name==='global_report.json');$('jsonDownload').href=jsonLink?.href||`/api/jobs/${job.id}/outputs/global_report.json`;
+      const hasEntrance=roleOrder.includes('entrance');
+      $('kpiGrid').innerHTML=[
+        kpi('Video clips',summary.videos_analyzed||0,'Each uploaded role runs independently'),
+        kpi('Local visitor estimates',summary.camera_local_visitors_sum_not_deduplicated??0,'Camera-local; not cross-camera unique'),
+        kpi('Entrance entries',hasEntrance?(summary.entrance_entries??0):'—',hasEntrance?'Only from an entrance-camera line crossing':'No entrance clip uploaded'),
+        kpi('Peak occupancy',summary.peak_occupancy_max_per_camera??0,'Maximum observed in any one clip'),
+        kpi('Group intervals',summary.groups_detected??0,'Temporary close co-movement'),
+      ].join('');
+      const roleResults=$('roleResults');roleResults.innerHTML='';
+      for(const role of roleOrder){
+        const r=roles[role],s=r.summary||{}, videoOut=r.outputs?.annotated_video;
+        const outputLinks=(job.outputs||[]).filter(o=>o.role===role);
+        const visitors=r.visitors||[];const groups=r.groups||[];
+        const visitorHtml=visitors.length?visitors.map(v=>`<div class="visitor-row"><strong>${escapeHtml(v.visitor_id)}</strong><span>${escapeHtml(fmtTime(v.observed_duration_seconds))} observed · ${escapeHtml(v.observation_count)} samples</span></div>`).join(''):'<div class="empty-state">No stable visitor tracks met the minimum observation quality in this clip.</div>';
+        const warnings=(r.warnings||[]).map(w=>`<div class="warning-list">${escapeHtml(w)}</div>`).join('');
+        const videoUrl=videoOut?`/api/jobs/${job.id}/outputs/${encodeURIComponent(videoOut)}`:'';
+        roleResults.insertAdjacentHTML('beforeend',`<article class="role-result"><div class="role-result-head"><div class="role-result-title"><div class="role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/></svg></div><div><h3>${escapeHtml(r.camera_label||roleLabels[role])}</h3><p>${escapeHtml(r.video?.width||'')} × ${escapeHtml(r.video?.height||'')} · ${escapeHtml(Number(r.video?.duration_seconds||0).toFixed(1))} sec · ${escapeHtml(r.detector?.backend||'detector')}</p></div></div><span class="role-badge">${escapeHtml(role)}</span></div><div class="role-result-content"><div><div class="video-wrap">${videoUrl?`<video controls preload="metadata" src="${videoUrl}"></video>`:'<div class="video-empty">Annotated video not available.</div>'}</div><div class="inline-links">${outputLinks.map(o=>`<a class="file-link" href="${o.href}" download>${escapeHtml(o.label)}</a>`).join('')}</div>${warnings}</div><div><div class="role-stats">${mini('Local visitors',s.camera_local_visitors_estimated??0)}${mini('Tracklets',s.tracklets??0)}${mini('Groups',s.group_intervals??0)}${mini('Peak occupancy',s.peak_detected_occupancy??0)}${role==='entrance'?mini('Entry / exit',`${s.entry_events??0} / ${s.exit_events??0}`):''}${role==='checkout'?mini('Checkout presence',s.checkout_camera_presence_events??0):''}</div><div class="role-subtitle">Anonymous visitor tracks</div><div class="visitor-list">${visitorHtml}</div></div></div></article>`);
+      }
+      const allGroups=roleOrder.flatMap(role=>(roles[role].groups||[]).map(g=>({...g,camera_role:role})));
+      $('groupGrid').innerHTML=allGroups.length?allGroups.map(g=>`<div class="group-card"><div class="group-head"><strong>${escapeHtml(g.group_id)} · ${escapeHtml(roleLabels[g.camera_role])}</strong><span class="group-kind">${escapeHtml(g.classification||'observed_group')}</span></div><div class="group-members">${(g.members||[]).map(escapeHtml).join(' + ')}</div><div class="group-meta">${escapeHtml(Number(g.together_seconds||0).toFixed(1))} sec together · close ratio ${escapeHtml(g.close_ratio)} · heuristic ${escapeHtml(g.confidence_heuristic)}</div></div>`).join(''):'<div class="empty-state" style="grid-column:1/-1">No group interval met the configured duration and proximity thresholds. Try a shorter minimum group time or check the annotated clip.</div>';
+      const candidates=report.cross_camera_candidates||[];const section=$('candidatesSection');
+      if(candidates.length){section.style.display='block';$('candidateList').innerHTML=`<table class="candidate-table"><thead><tr><th>From</th><th>To</th><th>Time gap</th><th>Appearance cue</th><th>Review status</th></tr></thead><tbody>${candidates.map(c=>`<tr><td>${escapeHtml(c.source_visitor_id)} · ${escapeHtml(roleLabels[c.source_camera_role])}</td><td>${escapeHtml(c.destination_visitor_id)} · ${escapeHtml(roleLabels[c.destination_camera_role])}</td><td>${escapeHtml(c.time_delta_seconds)} sec</td><td>${escapeHtml(c.coarse_appearance_similarity)}</td><td>${escapeHtml(c.status)}</td></tr>`).join('')}</tbody></table><div class="field-note" style="margin-top:7px">These are not confirmed matches and were not used to merge visitor counts.</div>`}
+      else {section.style.display='none';$('candidateList').innerHTML='<div class="empty-state">No synchronized cross-camera candidate links. Results remain camera-local.</div>'}
+    }
+    function mini(label,value){return `<div class="mini-stat"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`}
+    $('newAnalysis').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});$('results').classList.remove('show');$('progressPanel').classList.remove('show');setStep(0);clearError();});
+  </script>
+</body>
+</html>

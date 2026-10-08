@@ -1,0 +1,8 @@
+tracklet_id,source_tracker_id,visitor_id,start_seconds,end_seconds,duration_seconds,observations,mean_detection_confidence,track_status
+T0001,1,C-V001,0.0,20.02,20.02,91,0.7084,part_of_camera_local_identity
+T0002,2,C-V002,0.0,20.02,20.02,100,0.7553,part_of_camera_local_identity
+T0003,3,C-V003,0.4,2.603,2.202,11,0.7135,part_of_camera_local_identity
+T0004,9,C-V004,4.805,8.809,4.004,18,0.7386,part_of_camera_local_identity
+T0005,10,C-V003,4.805,17.017,12.212,52,0.6814,part_of_camera_local_identity
+T0006,12,C-V005,6.006,12.813,6.807,28,0.7601,part_of_camera_local_identity
+T0007,12,,17.417,19.019,1.602,8,0.4465,short_track

@@ -1,0 +1,2 @@
+camera_role,camera_id,camera_name,camera_local_visitors_estimated,tracklets,distinct_group_memberships,group_intervals,peak_occupancy,entry_events,exit_events,checkout_presence_events,payments_verified
+checkout,checkout_1_da0c4769,Checkout / purchase camera · Cam 1,5,7,2,2,5,0,0,5,0

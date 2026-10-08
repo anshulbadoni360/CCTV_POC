@@ -1,0 +1,1045 @@
+{
+  "schema_version": "2.1",
+  "pipeline_version": "2.1.0-streamlit",
+  "analysis_id": "80f1b7df0130",
+  "analysis_timestamp": "2026-10-08T04:12:03.285943+00:00",
+  "summary": {
+    "videos_analyzed": 2,
+    "camera_local_visitors_sum_not_deduplicated": 7,
+    "distinct_cross_camera_visitors": null,
+    "entrance_entries": 0,
+    "entrance_exits": 0,
+    "groups_detected": 3,
+    "group_intervals": 3,
+    "peak_occupancy_max_per_camera": 5,
+    "low_movement_intervals": 6,
+    "checkout_presence_events": 5,
+    "payments_verified": 0,
+    "cross_camera_review_candidates": 0
+  },
+  "camera_reports": {
+    "store_1_41e433e7": {
+      "schema_version": "2.1",
+      "pipeline_version": "2.1.0",
+      "camera_role": "store",
+      "camera_id": "store_1_41e433e7",
+      "camera_name": "Store floor · Cam 1",
+      "camera_label": "Store floor",
+      "source_filename": "gettyimages-1995820194-640_adpp.mp4",
+      "analysis_timestamp": "2026-10-08T09:35:38+0530",
+      "video": {
+        "width": 768,
+        "height": 432,
+        "source_fps": 29.97,
+        "analysis_fps": 4.995,
+        "frame_skip": 5,
+        "frames_processed": 658,
+        "sampled_frames": 110,
+        "duration_seconds": 21.96
+      },
+      "detector": {
+        "backend": "ultralytics_yolo",
+        "tracker_backend": "ultralytics_botsort",
+        "model": "yolo11x.pt",
+        "confidence_setting": 0.4,
+        "confidence_note": "Detector scores are not calibrated probabilities; OpenCV HOG scores are only ranking proxies."
+      },
+      "reid": {
+        "backend": "osnet_msmt17",
+        "match_threshold": 0.9,
+        "confidence_calibrated": false,
+        "note": "Appearance is an anonymous association cue only; never a confirmed physical identity."
+      },
+      "warnings": [],
+      "identity_policy": {
+        "scope": "camera_local_anonymous_estimates",
+        "tracklets_reconciled_offline": true,
+        "appearance_signal": "OSNet MSMT17 learned pedestrian embedding",
+        "automatic_cross_camera_merge": false,
+        "confidence_calibrated": false,
+        "note": "A person seen in multiple uploaded camera videos can be counted once per camera. Cross-camera candidate links do not merge these IDs."
+      },
+      "group_settings": {
+        "group_detection_enabled": true,
+        "proximity_scene_scale_ratio": 1.35,
+        "minimum_together_seconds": 3.0,
+        "minimum_continuous_box_overlap_seconds": 3.0,
+        "minimum_box_overlap_ratio": 0.15,
+        "likely_group_together_share_ratio": 0.4,
+        "minimum_close_ratio": 0.55,
+        "max_gap_seconds": 0.5,
+        "reassignment_margin": 0.3,
+        "alternative_min_together_seconds": 8.0,
+        "manually_excluded_group_visitor_ids": [],
+        "exclusive_temporal_membership": true,
+        "exclude_likely_fixed_post_candidates": true,
+        "automatically_excluded_fixed_post_ids": [],
+        "distance_note": "Bounding-box height is only an image-space perspective scale proxy; box-overlap ratio is intersection area divided by the smaller box area. No biological height is inferred.",
+        "together_share_denominator": "Each member's total observed in-camera time, estimated as the sum of visible track intervals with short gaps bridged.",
+        "group_meaning": "Temporary observed proximity, box overlap, and co-presence only; no family or relationship inference."
+      },
+      "summary": {
+        "camera_local_visitors_estimated": 2,
+        "tracklets": 2,
+        "short_or_unconfirmed_tracks": 0,
+        "tracklet_links_accepted": 0,
+        "group_intervals": 1,
+        "distinct_group_memberships": 1,
+        "likely_group_intervals": 0,
+        "stationary_role_candidates": 1,
+        "peak_detected_occupancy": 2,
+        "entry_events": 0,
+        "exit_events": 0,
+        "preexisting_occupants_at_clip_start": 0,
+        "first_detected_inside_after_clip_start": 0,
+        "ambiguous_entrance_tracks": 0,
+        "low_movement_intervals": 4,
+        "checkout_camera_presence_events": 0,
+        "payments_verified": 0
+      },
+      "tracklets": [
+        {
+          "tracklet_id": "T0001",
+          "source_tracker_id": 1,
+          "analysis_tracklet_id": "T0001",
+          "visitor_id": "S-V001",
+          "start_frame": 0,
+          "end_frame": 606,
+          "start_seconds": 0.0,
+          "end_seconds": 20.22,
+          "duration_seconds": 20.22,
+          "observations": 102,
+          "mean_detection_confidence": 0.891,
+          "status": "camera_local_identity_tracklet"
+        },
+        {
+          "tracklet_id": "T0002",
+          "source_tracker_id": 2,
+          "analysis_tracklet_id": "T0002",
+          "visitor_id": "S-V002",
+          "start_frame": 0,
+          "end_frame": 630,
+          "start_seconds": 0.0,
+          "end_seconds": 21.02,
+          "duration_seconds": 21.02,
+          "observations": 106,
+          "mean_detection_confidence": 0.788,
+          "status": "camera_local_identity_tracklet"
+        }
+      ],
+      "tracklet_link_audit": [],
+      "accepted_tracklet_links": [],
+      "visitors": [
+        {
+          "visitor_id": "S-V001",
+          "identity_status": "camera_local_anonymous_estimate",
+          "first_seen_seconds": 0.0,
+          "last_seen_seconds": 20.22,
+          "observed_duration_seconds": 20.22,
+          "observation_count": 102,
+          "mean_detection_confidence": 0.891,
+          "path_length_pixels": 543.6,
+          "mean_speed_body_lengths_per_second": 0.145,
+          "zone_dwell_seconds": {
+            "right": 5.61,
+            "center": 14.81
+          },
+          "role_candidate": "stationary_candidate_needs_review",
+          "group_intervals": [
+            "S-G001"
+          ]
+        },
+        {
+          "visitor_id": "S-V002",
+          "identity_status": "camera_local_anonymous_estimate",
+          "first_seen_seconds": 0.0,
+          "last_seen_seconds": 21.02,
+          "observed_duration_seconds": 21.02,
+          "observation_count": 106,
+          "mean_detection_confidence": 0.788,
+          "path_length_pixels": 972.4,
+          "mean_speed_body_lengths_per_second": 0.309,
+          "zone_dwell_seconds": {
+            "center": 15.02,
+            "right": 6.21
+          },
+          "role_candidate": "unclassified_customer_or_staff",
+          "group_intervals": [
+            "S-G001"
+          ]
+        }
+      ],
+      "stationary_role_candidates": [
+        {
+          "visitor_id": "S-V001",
+          "role_candidate": "stationary_candidate_needs_review",
+          "presence_ratio": 0.921,
+          "radius_person_heights_p90": 0.391,
+          "distinct_close_visitors": 1,
+          "confidence_is_heuristic": true,
+          "note": "Low movement alone does not establish staff; eligible for group detection unless manually excluded."
+        }
+      ],
+      "groups": [
+        {
+          "group_id": "S-G001",
+          "members": [
+            "S-V001",
+            "S-V002"
+          ],
+          "member_count": 2,
+          "start_frame": 504,
+          "end_frame": 606,
+          "start_seconds": 16.82,
+          "end_seconds": 20.22,
+          "together_seconds": 3.6,
+          "close_ratio": 0.778,
+          "confidence_heuristic": 0.689,
+          "expansion_bonus": 0.0,
+          "evidence_basis": "sustained_box_overlap",
+          "evidence": "Sustained bounding-box overlap and repeated co-presence; relationship is not inferred.",
+          "together_seconds_total": 3.6,
+          "member_observed_seconds": {
+            "S-V001": 20.42,
+            "S-V002": 21.22
+          },
+          "member_together_share": {
+            "S-V001": 0.1765,
+            "S-V002": 0.1698
+          },
+          "minimum_member_together_share": 0.1698,
+          "minimum_member_together_share_percent": 17.0,
+          "likely_group_share_threshold": 0.4,
+          "meets_likely_group_share": false,
+          "classification": "observed_group",
+          "assignment_note": "Sticky exclusive assignment; alternatives need sustained, stronger evidence."
+        }
+      ],
+      "group_assignment_policy": {
+        "group_detection_enabled": true,
+        "reassignment_margin": 0.3,
+        "alternative_min_together_seconds": 8.0,
+        "manually_excluded_visitor_ids": [],
+        "manual_exclusion_inputs": [],
+        "unmatched_manual_exclusion_inputs": [],
+        "note": "An existing group preference is retained unless a competing group is sustained and materially stronger."
+      },
+      "pair_evidence": [
+        {
+          "pair": [
+            "S-V001",
+            "S-V002"
+          ],
+          "shared_frames_in_interval": 18,
+          "close_frames": 14,
+          "close_ratio": 0.778,
+          "together_seconds": 3.6,
+          "together_seconds_total": 3.6,
+          "box_overlap_frames": 14,
+          "box_overlap_ratio_mean": 0.297,
+          "member_observed_seconds": {
+            "S-V001": 20.42,
+            "S-V002": 21.22
+          },
+          "member_together_share": {
+            "S-V001": 0.1765,
+            "S-V002": 0.1698
+          },
+          "minimum_member_together_share": 0.1698,
+          "likely_group_share_threshold": 0.4,
+          "meets_likely_group_share": false,
+          "qualifies_via_sustained_overlap": true,
+          "qualifies": true,
+          "accepted_after_exclusivity": true,
+          "minimum_member_together_share_percent": 17.0,
+          "classification": "observed_group"
+        }
+      ],
+      "entrance_events": [],
+      "preexisting_occupants": [],
+      "first_detected_inside_after_clip_start": [],
+      "ambiguous_entrance_tracks": [],
+      "stop_events": [
+        {
+          "visitor_id": "S-V001",
+          "start_seconds": 3.2,
+          "end_seconds": 5.21,
+          "duration_seconds": 2.0,
+          "location_px": [
+            482.2,
+            297.7
+          ],
+          "event_type": "low_movement_interval",
+          "event_id": "STOP-0001"
+        },
+        {
+          "visitor_id": "S-V001",
+          "start_seconds": 7.01,
+          "end_seconds": 11.61,
+          "duration_seconds": 4.6,
+          "location_px": [
+            492.6,
+            352.1
+          ],
+          "event_type": "low_movement_interval",
+          "event_id": "STOP-0002"
+        },
+        {
+          "visitor_id": "S-V001",
+          "start_seconds": 11.81,
+          "end_seconds": 13.81,
+          "duration_seconds": 2.0,
+          "location_px": [
+            493.6,
+            342.4
+          ],
+          "event_type": "low_movement_interval",
+          "event_id": "STOP-0003"
+        },
+        {
+          "visitor_id": "S-V002",
+          "start_seconds": 9.01,
+          "end_seconds": 11.21,
+          "duration_seconds": 2.2,
+          "location_px": [
+            531.0,
+            211.0
+          ],
+          "event_type": "low_movement_interval",
+          "event_id": "STOP-0004"
+        }
+      ],
+      "checkout_presence_events": [],
+      "occupancy_timeline": [
+        {
+          "seconds": 0.0,
+          "people_detected": 2
+        },
+        {
+          "seconds": 1.0,
+          "people_detected": 2
+        },
+        {
+          "seconds": 2.0,
+          "people_detected": 2
+        },
+        {
+          "seconds": 3.0,
+          "people_detected": 2
+        },
+        {
+          "seconds": 4.0,
+          "people_detected": 2
+        },
+        {
+          "seconds": 5.0,
+          "people_detected": 2
+        },
+        {
+          "seconds": 6.01,
+          "people_detected": 2
+        },
+        {
+          "seconds": 7.21,
+          "people_detected": 2
+        },
+        {
+          "seconds": 8.41,
+          "people_detected": 2
+        },
+        {
+          "seconds": 9.61,
+          "people_detected": 2
+        },
+        {
+          "seconds": 10.61,
+          "people_detected": 2
+        },
+        {
+          "seconds": 11.61,
+          "people_detected": 2
+        },
+        {
+          "seconds": 12.61,
+          "people_detected": 2
+        },
+        {
+          "seconds": 13.61,
+          "people_detected": 2
+        },
+        {
+          "seconds": 14.61,
+          "people_detected": 2
+        },
+        {
+          "seconds": 15.62,
+          "people_detected": 2
+        },
+        {
+          "seconds": 16.82,
+          "people_detected": 2
+        },
+        {
+          "seconds": 18.02,
+          "people_detected": 2
+        },
+        {
+          "seconds": 19.22,
+          "people_detected": 2
+        },
+        {
+          "seconds": 20.22,
+          "people_detected": 2
+        },
+        {
+          "seconds": 21.22,
+          "people_detected": 0
+        }
+      ],
+      "outputs": {
+        "annotated_video": "store_1_41e433e7_annotated.mp4",
+        "tracklets_csv": "store_1_41e433e7_tracklets.csv"
+      },
+      "processing_seconds": 352.54
+    },
+    "checkout_1_ed70654d": {
+      "schema_version": "2.1",
+      "pipeline_version": "2.1.0",
+      "camera_role": "checkout",
+      "camera_id": "checkout_1_ed70654d",
+      "camera_name": "Checkout / purchase camera · Cam 1",
+      "camera_label": "Checkout / purchase camera",
+      "source_filename": "video2.mp4",
+      "analysis_timestamp": "2026-10-08T09:41:58+0530",
+      "video": {
+        "width": 768,
+        "height": 432,
+        "source_fps": 29.97,
+        "analysis_fps": 4.995,
+        "frame_skip": 5,
+        "frames_processed": 602,
+        "sampled_frames": 101,
+        "duration_seconds": 20.09
+      },
+      "detector": {
+        "backend": "ultralytics_yolo",
+        "tracker_backend": "ultralytics_botsort",
+        "model": "yolo11x.pt",
+        "confidence_setting": 0.4,
+        "confidence_note": "Detector scores are not calibrated probabilities; OpenCV HOG scores are only ranking proxies."
+      },
+      "reid": {
+        "backend": "osnet_msmt17",
+        "match_threshold": 0.9,
+        "confidence_calibrated": false,
+        "note": "Appearance is an anonymous association cue only; never a confirmed physical identity."
+      },
+      "warnings": [],
+      "identity_policy": {
+        "scope": "camera_local_anonymous_estimates",
+        "tracklets_reconciled_offline": true,
+        "appearance_signal": "OSNet MSMT17 learned pedestrian embedding",
+        "automatic_cross_camera_merge": false,
+        "confidence_calibrated": false,
+        "note": "A person seen in multiple uploaded camera videos can be counted once per camera. Cross-camera candidate links do not merge these IDs."
+      },
+      "group_settings": {
+        "group_detection_enabled": true,
+        "proximity_scene_scale_ratio": 1.35,
+        "minimum_together_seconds": 3.0,
+        "minimum_continuous_box_overlap_seconds": 3.0,
+        "minimum_box_overlap_ratio": 0.15,
+        "likely_group_together_share_ratio": 0.4,
+        "minimum_close_ratio": 0.55,
+        "max_gap_seconds": 0.5,
+        "reassignment_margin": 0.3,
+        "alternative_min_together_seconds": 8.0,
+        "manually_excluded_group_visitor_ids": [],
+        "exclusive_temporal_membership": true,
+        "exclude_likely_fixed_post_candidates": true,
+        "automatically_excluded_fixed_post_ids": [],
+        "distance_note": "Bounding-box height is only an image-space perspective scale proxy; box-overlap ratio is intersection area divided by the smaller box area. No biological height is inferred.",
+        "together_share_denominator": "Each member's total observed in-camera time, estimated as the sum of visible track intervals with short gaps bridged.",
+        "group_meaning": "Temporary observed proximity, box overlap, and co-presence only; no family or relationship inference."
+      },
+      "summary": {
+        "camera_local_visitors_estimated": 5,
+        "tracklets": 8,
+        "short_or_unconfirmed_tracks": 2,
+        "tracklet_links_accepted": 1,
+        "group_intervals": 2,
+        "distinct_group_memberships": 2,
+        "likely_group_intervals": 1,
+        "stationary_role_candidates": 2,
+        "peak_detected_occupancy": 5,
+        "entry_events": 0,
+        "exit_events": 0,
+        "preexisting_occupants_at_clip_start": 0,
+        "first_detected_inside_after_clip_start": 0,
+        "ambiguous_entrance_tracks": 0,
+        "low_movement_intervals": 2,
+        "checkout_camera_presence_events": 5,
+        "payments_verified": 0
+      },
+      "tracklets": [
+        {
+          "tracklet_id": "T0001",
+          "source_tracker_id": 1,
+          "analysis_tracklet_id": "T0001",
+          "visitor_id": "C-V001",
+          "start_frame": 0,
+          "end_frame": 600,
+          "start_seconds": 0.0,
+          "end_seconds": 20.02,
+          "duration_seconds": 20.02,
+          "observations": 101,
+          "mean_detection_confidence": 0.907,
+          "status": "camera_local_identity_tracklet"
+        },
+        {
+          "tracklet_id": "T0002",
+          "source_tracker_id": 2,
+          "analysis_tracklet_id": "T0002",
+          "visitor_id": "C-V002",
+          "start_frame": 0,
+          "end_frame": 600,
+          "start_seconds": 0.0,
+          "end_seconds": 20.02,
+          "duration_seconds": 20.02,
+          "observations": 101,
+          "mean_detection_confidence": 0.824,
+          "status": "camera_local_identity_tracklet"
+        },
+        {
+          "tracklet_id": "T0003",
+          "source_tracker_id": 3,
+          "analysis_tracklet_id": "T0003",
+          "visitor_id": "C-V003",
+          "start_frame": 0,
+          "end_frame": 600,
+          "start_seconds": 0.0,
+          "end_seconds": 20.02,
+          "duration_seconds": 20.02,
+          "observations": 83,
+          "mean_detection_confidence": 0.826,
+          "status": "camera_local_identity_tracklet"
+        },
+        {
+          "tracklet_id": "T0004",
+          "source_tracker_id": 6,
+          "analysis_tracklet_id": "T0004",
+          "visitor_id": "C-V004",
+          "start_frame": 138,
+          "end_frame": 450,
+          "start_seconds": 4.6,
+          "end_seconds": 15.02,
+          "duration_seconds": 10.41,
+          "observations": 47,
+          "mean_detection_confidence": 0.854,
+          "status": "camera_local_identity_tracklet"
+        },
+        {
+          "tracklet_id": "T0005",
+          "source_tracker_id": 8,
+          "analysis_tracklet_id": "T0005",
+          "visitor_id": "C-V005",
+          "start_frame": 174,
+          "end_frame": 564,
+          "start_seconds": 5.81,
+          "end_seconds": 18.82,
+          "duration_seconds": 13.01,
+          "observations": 65,
+          "mean_detection_confidence": 0.89,
+          "status": "camera_local_identity_tracklet"
+        },
+        {
+          "tracklet_id": "T0006",
+          "source_tracker_id": 9,
+          "analysis_tracklet_id": "T0006",
+          "visitor_id": null,
+          "start_frame": 372,
+          "end_frame": 372,
+          "start_seconds": 12.41,
+          "end_seconds": 12.41,
+          "duration_seconds": 0.0,
+          "observations": 1,
+          "mean_detection_confidence": 0.525,
+          "status": "short_track_unconfirmed"
+        },
+        {
+          "tracklet_id": "T0007",
+          "source_tracker_id": 10,
+          "analysis_tracklet_id": "T0007",
+          "visitor_id": "C-V004",
+          "start_frame": 510,
+          "end_frame": 600,
+          "start_seconds": 17.02,
+          "end_seconds": 20.02,
+          "duration_seconds": 3.0,
+          "observations": 16,
+          "mean_detection_confidence": 0.508,
+          "status": "camera_local_identity_tracklet"
+        },
+        {
+          "tracklet_id": "T0008",
+          "source_tracker_id": 11,
+          "analysis_tracklet_id": "T0008",
+          "visitor_id": null,
+          "start_frame": 516,
+          "end_frame": 516,
+          "start_seconds": 17.22,
+          "end_seconds": 17.22,
+          "duration_seconds": 0.0,
+          "observations": 1,
+          "mean_detection_confidence": 0.498,
+          "status": "short_track_unconfirmed"
+        }
+      ],
+      "tracklet_link_audit": [
+        {
+          "tracklet_a": "T0004",
+          "tracklet_b": "T0007",
+          "appearance_similarity": 0.9923,
+          "spatial_distance_body_lengths": 0.73,
+          "gap_seconds": 2.002,
+          "score": 0.9465,
+          "decision": "accepted"
+        },
+        {
+          "tracklet_a": "T0004",
+          "tracklet_b": "T0008",
+          "appearance_similarity": 0.979,
+          "spatial_distance_body_lengths": 2.351,
+          "gap_seconds": 2.202,
+          "score": 0.8702,
+          "decision": "rejected_temporal_conflict"
+        }
+      ],
+      "accepted_tracklet_links": [
+        {
+          "tracklet_a": "T0004",
+          "tracklet_b": "T0007",
+          "appearance_similarity": 0.9923,
+          "spatial_distance_body_lengths": 0.73,
+          "gap_seconds": 2.002,
+          "score": 0.9465,
+          "decision": "accepted_offline_link"
+        }
+      ],
+      "visitors": [
+        {
+          "visitor_id": "C-V001",
+          "identity_status": "camera_local_anonymous_estimate",
+          "first_seen_seconds": 0.0,
+          "last_seen_seconds": 20.02,
+          "observed_duration_seconds": 20.02,
+          "observation_count": 101,
+          "mean_detection_confidence": 0.907,
+          "path_length_pixels": 719.6,
+          "mean_speed_body_lengths_per_second": 0.205,
+          "zone_dwell_seconds": {},
+          "role_candidate": "stationary_candidate_needs_review",
+          "group_intervals": []
+        },
+        {
+          "visitor_id": "C-V002",
+          "identity_status": "camera_local_anonymous_estimate",
+          "first_seen_seconds": 0.0,
+          "last_seen_seconds": 20.02,
+          "observed_duration_seconds": 20.02,
+          "observation_count": 101,
+          "mean_detection_confidence": 0.824,
+          "path_length_pixels": 726.1,
+          "mean_speed_body_lengths_per_second": 0.178,
+          "zone_dwell_seconds": {},
+          "role_candidate": "unclassified_customer_or_staff",
+          "group_intervals": [
+            "C-G001"
+          ]
+        },
+        {
+          "visitor_id": "C-V003",
+          "identity_status": "camera_local_anonymous_estimate",
+          "first_seen_seconds": 0.0,
+          "last_seen_seconds": 20.02,
+          "observed_duration_seconds": 20.02,
+          "observation_count": 83,
+          "mean_detection_confidence": 0.826,
+          "path_length_pixels": 448.7,
+          "mean_speed_body_lengths_per_second": 0.146,
+          "zone_dwell_seconds": {},
+          "role_candidate": "stationary_candidate_needs_review",
+          "group_intervals": [
+            "C-G001"
+          ]
+        },
+        {
+          "visitor_id": "C-V004",
+          "identity_status": "camera_local_anonymous_estimate",
+          "first_seen_seconds": 4.6,
+          "last_seen_seconds": 20.02,
+          "observed_duration_seconds": 15.42,
+          "observation_count": 63,
+          "mean_detection_confidence": 0.766,
+          "path_length_pixels": 379.3,
+          "mean_speed_body_lengths_per_second": 0.194,
+          "zone_dwell_seconds": {},
+          "role_candidate": "unclassified_customer_or_staff",
+          "group_intervals": [
+            "C-G002"
+          ]
+        },
+        {
+          "visitor_id": "C-V005",
+          "identity_status": "camera_local_anonymous_estimate",
+          "first_seen_seconds": 5.81,
+          "last_seen_seconds": 18.82,
+          "observed_duration_seconds": 13.01,
+          "observation_count": 65,
+          "mean_detection_confidence": 0.89,
+          "path_length_pixels": 376.4,
+          "mean_speed_body_lengths_per_second": 0.162,
+          "zone_dwell_seconds": {},
+          "role_candidate": "unclassified_customer_or_staff",
+          "group_intervals": [
+            "C-G002"
+          ]
+        }
+      ],
+      "stationary_role_candidates": [
+        {
+          "visitor_id": "C-V001",
+          "role_candidate": "stationary_candidate_needs_review",
+          "presence_ratio": 0.997,
+          "radius_person_heights_p90": 0.206,
+          "distinct_close_visitors": 1,
+          "confidence_is_heuristic": true,
+          "note": "Low movement alone does not establish staff; eligible for group detection unless manually excluded."
+        },
+        {
+          "visitor_id": "C-V003",
+          "role_candidate": "stationary_candidate_needs_review",
+          "presence_ratio": 0.997,
+          "radius_person_heights_p90": 0.656,
+          "distinct_close_visitors": 3,
+          "confidence_is_heuristic": true,
+          "note": "Low movement alone does not establish staff; eligible for group detection unless manually excluded."
+        }
+      ],
+      "groups": [
+        {
+          "group_id": "C-G001",
+          "members": [
+            "C-V002",
+            "C-V003"
+          ],
+          "member_count": 2,
+          "start_frame": 168,
+          "end_frame": 498,
+          "start_seconds": 5.61,
+          "end_seconds": 16.62,
+          "together_seconds": 11.21,
+          "close_ratio": 0.929,
+          "confidence_heuristic": 0.965,
+          "expansion_bonus": 0.0,
+          "evidence_basis": "image_space_proximity",
+          "evidence": "Repeated close co-presence in image-space; relationship is not inferred.",
+          "together_seconds_total": 11.21,
+          "member_observed_seconds": {
+            "C-V002": 20.22,
+            "C-V003": 17.02
+          },
+          "member_together_share": {
+            "C-V002": 0.5545,
+            "C-V003": 0.6588
+          },
+          "minimum_member_together_share": 0.5545,
+          "minimum_member_together_share_percent": 55.4,
+          "likely_group_share_threshold": 0.4,
+          "meets_likely_group_share": true,
+          "classification": "likely_group",
+          "assignment_note": "Sticky exclusive assignment; alternatives need sustained, stronger evidence."
+        },
+        {
+          "group_id": "C-G002",
+          "members": [
+            "C-V004",
+            "C-V005"
+          ],
+          "member_count": 2,
+          "start_frame": 174,
+          "end_frame": 318,
+          "start_seconds": 5.81,
+          "end_seconds": 10.61,
+          "together_seconds": 5.0,
+          "close_ratio": 0.84,
+          "confidence_heuristic": 0.837,
+          "expansion_bonus": 0.0,
+          "evidence_basis": "sustained_box_overlap",
+          "evidence": "Sustained bounding-box overlap and repeated co-presence; relationship is not inferred.",
+          "together_seconds_total": 5.0,
+          "member_observed_seconds": {
+            "C-V004": 12.61,
+            "C-V005": 13.21
+          },
+          "member_together_share": {
+            "C-V004": 0.3968,
+            "C-V005": 0.3788
+          },
+          "minimum_member_together_share": 0.3788,
+          "minimum_member_together_share_percent": 37.9,
+          "likely_group_share_threshold": 0.4,
+          "meets_likely_group_share": false,
+          "classification": "observed_group",
+          "assignment_note": "Sticky exclusive assignment; alternatives need sustained, stronger evidence."
+        }
+      ],
+      "group_assignment_policy": {
+        "group_detection_enabled": true,
+        "reassignment_margin": 0.3,
+        "alternative_min_together_seconds": 8.0,
+        "manually_excluded_visitor_ids": [],
+        "manual_exclusion_inputs": [],
+        "unmatched_manual_exclusion_inputs": [],
+        "note": "An existing group preference is retained unless a competing group is sustained and materially stronger."
+      },
+      "pair_evidence": [
+        {
+          "pair": [
+            "C-V002",
+            "C-V003"
+          ],
+          "shared_frames_in_interval": 56,
+          "close_frames": 52,
+          "close_ratio": 0.929,
+          "together_seconds": 11.21,
+          "together_seconds_total": 11.21,
+          "box_overlap_frames": 0,
+          "box_overlap_ratio_mean": 0.159,
+          "member_observed_seconds": {
+            "C-V002": 20.22,
+            "C-V003": 17.02
+          },
+          "member_together_share": {
+            "C-V002": 0.5545,
+            "C-V003": 0.6588
+          },
+          "minimum_member_together_share": 0.5545,
+          "likely_group_share_threshold": 0.4,
+          "meets_likely_group_share": true,
+          "qualifies_via_sustained_overlap": false,
+          "qualifies": true,
+          "accepted_after_exclusivity": true,
+          "minimum_member_together_share_percent": 55.4,
+          "classification": "likely_group"
+        },
+        {
+          "pair": [
+            "C-V004",
+            "C-V005"
+          ],
+          "shared_frames_in_interval": 25,
+          "close_frames": 21,
+          "close_ratio": 0.84,
+          "together_seconds": 5.0,
+          "together_seconds_total": 5.0,
+          "box_overlap_frames": 21,
+          "box_overlap_ratio_mean": 0.82,
+          "member_observed_seconds": {
+            "C-V004": 12.61,
+            "C-V005": 13.21
+          },
+          "member_together_share": {
+            "C-V004": 0.3968,
+            "C-V005": 0.3788
+          },
+          "minimum_member_together_share": 0.3788,
+          "likely_group_share_threshold": 0.4,
+          "meets_likely_group_share": false,
+          "qualifies_via_sustained_overlap": true,
+          "qualifies": true,
+          "accepted_after_exclusivity": true,
+          "minimum_member_together_share_percent": 37.9,
+          "classification": "observed_group"
+        }
+      ],
+      "entrance_events": [],
+      "preexisting_occupants": [],
+      "first_detected_inside_after_clip_start": [],
+      "ambiguous_entrance_tracks": [],
+      "stop_events": [
+        {
+          "visitor_id": "C-V002",
+          "start_seconds": 5.21,
+          "end_seconds": 16.62,
+          "duration_seconds": 11.41,
+          "location_px": [
+            455.3,
+            428.5
+          ],
+          "event_type": "low_movement_interval",
+          "event_id": "STOP-0001"
+        },
+        {
+          "visitor_id": "C-V003",
+          "start_seconds": 6.01,
+          "end_seconds": 16.62,
+          "duration_seconds": 10.61,
+          "location_px": [
+            329.1,
+            425.9
+          ],
+          "event_type": "low_movement_interval",
+          "event_id": "STOP-0002"
+        }
+      ],
+      "checkout_presence_events": [
+        {
+          "event_id": "CHK-0001",
+          "visitor_id": "C-V001",
+          "start_seconds": 0.0,
+          "end_seconds": 20.02,
+          "observed_seconds": 20.02,
+          "event_type": "visual_checkout_camera_presence",
+          "purchase_verified": false
+        },
+        {
+          "event_id": "CHK-0002",
+          "visitor_id": "C-V002",
+          "start_seconds": 0.0,
+          "end_seconds": 20.02,
+          "observed_seconds": 20.02,
+          "event_type": "visual_checkout_camera_presence",
+          "purchase_verified": false
+        },
+        {
+          "event_id": "CHK-0003",
+          "visitor_id": "C-V003",
+          "start_seconds": 0.0,
+          "end_seconds": 20.02,
+          "observed_seconds": 20.02,
+          "event_type": "visual_checkout_camera_presence",
+          "purchase_verified": false
+        },
+        {
+          "event_id": "CHK-0004",
+          "visitor_id": "C-V004",
+          "start_seconds": 4.6,
+          "end_seconds": 20.02,
+          "observed_seconds": 15.42,
+          "event_type": "visual_checkout_camera_presence",
+          "purchase_verified": false
+        },
+        {
+          "event_id": "CHK-0005",
+          "visitor_id": "C-V005",
+          "start_seconds": 5.81,
+          "end_seconds": 18.82,
+          "observed_seconds": 13.01,
+          "event_type": "visual_checkout_camera_presence",
+          "purchase_verified": false
+        }
+      ],
+      "occupancy_timeline": [
+        {
+          "seconds": 0.0,
+          "people_detected": 3
+        },
+        {
+          "seconds": 1.0,
+          "people_detected": 3
+        },
+        {
+          "seconds": 2.0,
+          "people_detected": 3
+        },
+        {
+          "seconds": 3.0,
+          "people_detected": 2
+        },
+        {
+          "seconds": 4.0,
+          "people_detected": 3
+        },
+        {
+          "seconds": 5.0,
+          "people_detected": 4
+        },
+        {
+          "seconds": 6.01,
+          "people_detected": 5
+        },
+        {
+          "seconds": 7.21,
+          "people_detected": 5
+        },
+        {
+          "seconds": 8.41,
+          "people_detected": 5
+        },
+        {
+          "seconds": 9.61,
+          "people_detected": 5
+        },
+        {
+          "seconds": 10.61,
+          "people_detected": 5
+        },
+        {
+          "seconds": 11.61,
+          "people_detected": 5
+        },
+        {
+          "seconds": 12.61,
+          "people_detected": 4
+        },
+        {
+          "seconds": 13.61,
+          "people_detected": 5
+        },
+        {
+          "seconds": 14.61,
+          "people_detected": 5
+        },
+        {
+          "seconds": 15.62,
+          "people_detected": 4
+        },
+        {
+          "seconds": 16.82,
+          "people_detected": 3
+        },
+        {
+          "seconds": 18.02,
+          "people_detected": 4
+        },
+        {
+          "seconds": 19.22,
+          "people_detected": 3
+        }
+      ],
+      "outputs": {
+        "annotated_video": "checkout_1_ed70654d_annotated.mp4",
+        "tracklets_csv": "checkout_1_ed70654d_tracklets.csv"
+      },
+      "processing_seconds": 380.48
+    }
+  },
+  "cross_camera_candidates": [],
+  "cross_camera_policy": {
+    "automatic_merge": false,
+    "start_offsets": {
+      "store_1_41e433e7": null,
+      "checkout_1_ed70654d": null
+    },
+    "note": "Candidate links require user-supplied offsets on one synchronized timeline. Candidate links are not identity decisions and do not change counts."
+  },
+  "limitations": [
+    "Visitor IDs are anonymous and camera-local; counts across camera videos are not deduplicated.",
+    "Group labels represent temporary proximity, box-overlap, and co-presence evidence—not family or personal relationships.",
+    "Stationary-role candidates are heuristic suggestions, not confirmed staff/cashier labels.",
+    "Checkout-camera presence is not proof of a payment. No POS transaction feed was provided.",
+    "Confidence values are not calibrated; validate against manually labelled footage before business use.",
+    "No age, gender, face identity, intent, or theft classification is performed."
+  ]
+}
