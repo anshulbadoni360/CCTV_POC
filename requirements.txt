@@ -1,5 +1,5 @@
 ultralytics
-opencv-python
+opencv-python-headless==4.14.0.94
 numpy
 pandas
 lap>=0.5.12
